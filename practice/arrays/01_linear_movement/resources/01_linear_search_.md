@@ -1,219 +1,127 @@
-linear search 
+1️⃣ Linear Search (Basic Search)
 
-1️⃣ Problem Statement
+Input: arr = [4, 2, 7, 1, 9, 3], target = 7
 
-Find the index of first occurrence of target in an array nums. Return -1 if not found.
+Output: 2 (index of 7)
 
-2️⃣ Input / Output
-nums = [4, 2, 7, 1, 9, 3]
-target = 7
-Output: 2
+Constraints / Requirements:
 
-3️⃣ LeetCode Reference
+Array can be unsorted
 
-NA
+Works for duplicates
 
-4️⃣ Brute Force Pseudocode
-function linearSearch(nums, target):
-    for i = 0 to len(nums)-1:
-        if nums[i] == target:
-            return i
-    return -1
+Handle empty array → return -1
 
+Time Complexity: O(n)
 
-Explanation:
+Space Complexity: O(1)
 
-Traverse each element linearly from start to end
+Algorithm:
 
-Stop immediately on first match → return index
+Start from index 0
 
-Time Complexity Reasoning:
+Compare each element with target
 
-Best case: target at index 0 → O(1)
+If match → return index
 
-Worst case: target at last index or not present → O(n)
+If end of array reached → return -1
 
-Average case: target in middle → O(n)
+LeetCode: Not a direct problem, but basic concept used in many problems (e.g., 704. Binary Search
+ — but that’s for sorted arrays)
 
-Space Complexity Reasoning:
+2️⃣ Count Occurrences of Target
 
-Only loop variable used → O(1)
+Input: arr = [4, 2, 7, 2, 1, 2, 3], target = 2
 
-6️⃣ Movement → Condition → Operation → State → Result
-Step	Start	End	Condition	Operation	State	Result
-Linear Search	i=0	i=n-1	nums[i] == target	return i	current index	index of first occurrence or -1
-7️⃣ Dry Run
-nums = [4,2,7,1,9,3], target=7
-i=0 → 4!=7 → continue
-i=1 → 2!=7 → continue
-i=2 → 7==7 → return 2
-Output: 2
+Output: 3 (2 appears 3 times)
 
+Constraints / Requirements:
 
-// Problem: Linear Search (Search Element in Array)
-// Concept: Arrays
-// Pattern: Brute Force / Basic Searching
-// Link: https://www.geeksforgeeks.org/linear-search/
-// Approach: Iterate through array and compare each element with target
-// Time Complexity: O(n)
-// Space Complexity: O(1)
+Array can be unsorted
 
+Works for duplicates
 
-Linear Search – Algorithm
+Empty array → return 0
 
-Start from the first element of the array.
+Time Complexity: O(n)
 
-Compare the current element with the target value.
+Space Complexity: O(1)
 
-If they are equal,
-→ Return the index (target found).
+Algorithm:
 
-If not,
-→ Move to the next element.
+Initialize count = 0
 
-Continue until:
+Loop through array
 
-You find the target, or
+If element == target → count++
 
-You reach the end of the array.
+Return count
 
-If the entire array is scanned and the target is not found,
-→ Return -1 (target not present).
+LeetCode: Q1150. Check If a Number Occurs Twice
+ (variant for counting)
 
+3️⃣ Find All Indices of Target
 
------------------------------------------------------------------------------------
+Input: arr = [4, 2, 7, 2, 1, 2, 3], target = 2
 
-Count all occurrences of target in nums.
+Output: [1, 3, 5] (indices of 2)
 
-1️⃣ Problem Statement
-Count all occurrences of target in nums.
-2️⃣ Input / Output
-nums = [2,3,2,4,2,5]
-target = 2
-Output: 3
-3️⃣ LeetCode Reference
-NA
-________________________________________
-4️⃣ Brute Force Pseudocode
-count = 0
-for i = 0 to len(nums)-1:
-    if nums[i] == target:
-        count++
-return count
-Time Complexity Reasoning:
-•	Must check all elements to count occurrences → O(n)
-•	Early exit not possible
-Space Complexity Reasoning:
-•	Only count variable used → O(1)
-________________________________________
-6️⃣ Movement → Condition → Operation → State → Result
-Step	Start	End	Condition	Operation	State	Result
-Count Occurrences	i=0	i=n-1	nums[i] == target	count++	running count	total occurrences
-7️⃣ Dry Run
-nums=[2,3,2,4,2,5], target=2
-i=0 → 2==2 → count=1
-i=1 → 3!=2 → count=1
-i=2 → 2==2 → count=2
-i=3 → 4!=2 → count=2
-i=4 → 2==2 → count=3
-i=5 → 5!=2 → count=3
-Output: 3
+Constraints / Requirements:
 
-short notes
+Array can be unsorted
 
+Works for duplicates
 
+Empty array → return empty list []
 
-// Problem: Count Occurrences of a Target in Array
-// Concept: Arrays
-// Pattern: Brute Force / Frequency Counting
-// Link: https://www.geeksforgeeks.org/count-number-of-occurrences/
-// Approach: Iterate and count matches
-// Time: O(n)
-// Space: O(1)
+Time Complexity: O(n)
 
-Algorithm: Count Occurrences
+Space Complexity: O(k) — k = number of matches
 
-Initialize a variable count = 0.
+Algorithm:
 
-Loop from index 0 to n-1 through the array.
+Initialize empty list result
 
-For each element:
+Loop through array
 
-If arr[i] == target,
-→ increment count by 1.
+If element == target → append index to result
 
-After completing the loop:
+Return result
 
-Return count.
+LeetCode: Can be implemented as helper in 1. Two Sum
+ to find all indices
 
+4️⃣ First and Last Occurrence (Linear Search)
 
-----------------------------------------------------------------------------------
+Input: arr = [4, 2, 7, 2, 1, 2, 3], target = 2
 
-1️⃣ Problem Statement
-Return a slice of all indices where target occurs.
-2️⃣ Input / Output
-nums = [2,3,2,4,2,5]
-target = 2
-Output: [0,2,4]
-3️⃣ LeetCode Reference
-NA
-________________________________________
-4️⃣ Brute Force Pseudocode
-indices = []
-for i=0 to len(nums)-1:
-    if nums[i]==target:
-        append i to indices
-return indices
-Time Complexity Reasoning:
-•	Must scan entire array → O(n)
-•	Appending index → O(1) amortized → total still O(n)
-Space Complexity Reasoning:
-•	Slice stores k occurrences → O(k)
-•	Loop variable → negligible → O(1)
+Output: (1, 5) → first at index 1, last at index 5
 
+Constraints / Requirements:
 
-6️⃣ Movement → Condition → Operation → State → Result
-Step	Start	End	Condition	Operation	State	Result
-Return all indices	i=0	i=n-1	nums[i] == target	append i to slice	slice grows	slice of all indices
-________________________________________
-7️⃣ Dry Run
-nums=[2,3,2,4,2,5], target=2
-i=0 → 2==2 → indices=[0]
-i=1 → 3!=2 → indices=[0]
-i=2 → 2==2 → indices=[0,2]
-i=3 → 4!=2 → indices=[0,2]
-i=4 → 2==2 → indices=[0,2,4]
-i=5 → 5!=2 → indices=[0,2,4]
-Output: [0,2,4]
+Array can be unsorted for linear search
 
+Works for duplicates
 
-short notes 
+Empty array → return (-1, -1)
 
-// Problem: Find All Indices of a Target
-// Concept: Arrays
-// Pattern: Brute Force
-// Link: https://www.geeksforgeeks.org/find-all-occurrences-of-an-element-in-an-array/
-// Approach: Traverse array and store positions where arr[i] == target
-// Time: O(n)
-// Space: O(k)   // k = number of matches
+Time Complexity: O(n)
 
+Space Complexity: O(1)
 
+Algorithm:
 
-✅ Algorithm: Find All Indices
-Create an empty list/array result.
+Initialize first = -1, last = -1
 
-Loop through the array from i = 0 to n-1.
+Loop through array
 
-For each element:
+If element == target:
 
-If arr[i] == target,
-→ append i to result.
+If first == -1, set first = index
 
-After the loop ends, return result.
+Always set last = index
 
-If no indices found, return an empty list.
+Return (first, last)
 
-------------------------------------------------------------------------------------------
-
-
-
+LeetCode: 34. Find First and Last Position of Element in Sorted Array
+ (for sorted array → binary search version)
