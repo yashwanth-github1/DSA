@@ -20,6 +20,7 @@ func countOccurrences(nums []int, target int) int {
 	return count
 }
 
+// Return All Indices of Target
 func allIndices(nums []int, target int) []int {
 	var indices []int
 	for i, val := range nums { // start movement
@@ -28,4 +29,19 @@ func allIndices(nums []int, target int) []int {
 		}
 	} // end movement
 	return indices
+}
+
+// First and Last Occurrence
+
+func searchRange(nums []int, target int) []int {
+	first, last := -1, -1
+	for i, val := range nums { // start movement
+		if val == target { // condition
+			if first == -1 { // first occurrence
+				first = i // operation 1
+			}
+			last = i // operation 2
+		}
+	} // end movement
+	return []int{first, last}
 }
