@@ -84,13 +84,6 @@ func threeSumClosest(nums []int, target int) int {
 	sort.Ints(nums)
 	closestSum := nums[0] + nums[1] + nums[2]
 
-	// Movement → Condition → Operation → State → Result
-	// Movement: i loop, left & right pointers
-	// Condition: left < right
-	// Operation: sum check, move pointers
-	// State: updated closestSum
-	// Result: final closest sum
-
 	for i := 0; i < len(nums)-2; i++ {
 		left, right := i+1, len(nums)-1
 		for left < right {

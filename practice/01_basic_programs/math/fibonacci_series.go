@@ -1,0 +1,26 @@
+package main
+
+import "fmt"
+
+func fibonacciSeries(n int) (fib []int) {
+
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("recovered from fibonacci panic", r)
+			fib = []int{}
+		}
+	}()
+
+	if n <= 0 {
+		return []int{}
+	}
+	fib = make([]int, n)
+	fib[0] = 0
+	if n > 1 {
+		fib[1] = 1
+	}
+	for i := 2; i < n; i++ {
+		fib[i] = fib[i-1] + fib[i-2]
+	}
+	return fib
+}

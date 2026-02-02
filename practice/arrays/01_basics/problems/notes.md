@@ -180,7 +180,7 @@ for i in 0 to n-1:
 Time Complexity: O(n)
 Space Complexity: O(1) → simple count
 
-✅ Summary Table of Array Operations
+
 
 Operation	Time Complexity	Space Complexity	Notes
 Access / Read	O(1)	O(1)	Direct index

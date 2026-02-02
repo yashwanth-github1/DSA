@@ -10,10 +10,10 @@ func removeDuplicates(nums []int) int {
 
 	slow := 0
 
-	for fast := 1; fast < len(nums); fast++ { // movement
-		if nums[fast] != nums[slow] { // condition
-			slow++                  // operation
-			nums[slow] = nums[fast] // place unique element
+	for fast := 1; fast < len(nums); fast++ {
+		if nums[fast] != nums[slow] {
+			slow++
+			nums[slow] = nums[fast]
 		}
 	}
 

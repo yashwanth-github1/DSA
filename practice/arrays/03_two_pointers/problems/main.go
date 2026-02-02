@@ -17,7 +17,7 @@ func main() {
 
 	nums2 := []int{1, 3, 4, 7, 10}
 	target2 := 15
-	fmt.Println(closestPair(nums2, target2))
+	fmt.Println(countPairs(nums2, target2))
 
 	nums13 := []int{1, 3, 4, 7, 10}
 	target5 := 15
@@ -32,8 +32,8 @@ func main() {
 	fmt.Println(threeSumTarget(nums4, target4))
 
 	nums5 := []int{-1, 2, 1, -4}
-	target5 := 1
-	fmt.Println(threeSumClosest(nums5, target5)) // Output: 2
+	target6 := 1
+	fmt.Println(threeSumClosest(nums5, target6)) // Output: 2
 
 	nums6 := []int{1, 2, 3, 4, 5, 6, 7}
 	ReversePart(nums6, 2, 5)
@@ -63,5 +63,9 @@ func main() {
 	nums12 := []int{2, 5, 6}
 	merge(nums11, 3, nums12, 3)
 	fmt.Println(nums11) // Output: [1 2 2 3 5 6]
+
+	a := []int{2, 3, 5}
+	b := []int{1, 4, 6, 7}
+	fmt.Println(mergeSortedArrays(a, b))
 
 }

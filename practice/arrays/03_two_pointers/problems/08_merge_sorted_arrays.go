@@ -9,14 +9,13 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 
 	for p1 >= 0 && p2 >= 0 { // Condition: both pointers valid
 		if nums1[p1] > nums2[p2] {
-			nums1[p] = nums1[p1] // Operation: place larger element at end
+			nums1[p] = nums1[p1] //place larger element at end
 			p1--                 // State: move p1
 		} else {
-			nums1[p] = nums2[p2] // Operation: place larger element at end
+			nums1[p] = nums2[p2] // place larger element at end
 			p2--                 // State: move p2
 		}
-		p-- // State: merged pointer moves backward
-		// Result: largest elements placed at end of nums1
+		p-- // merged pointer moves backward
 	}
 
 	// Copy remaining nums2 if any
@@ -25,4 +24,29 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 		p2--
 		p--
 	}
+}
+
+func mergeSortedArrays(a []int, b []int) []int {
+	i, j := 0, 0
+	result := []int{}
+	for i < len(a) && j < len(b) {
+		if a[i] <= b[j] {
+			result = append(result, a[i])
+			i++
+		} else {
+			result = append(result, b[j])
+			j++
+		}
+	}
+	// for i<len(a){
+	// result = append(result,a[i])
+	// }
+	// for j<len(b){
+	// result = append(result,b[j])
+	// }
+	//
+	result = append(result, a[i:]...)
+	result = append(result, b[j:]...)
+
+	return result
 }

@@ -3,12 +3,6 @@ package main
 //Reverse Array
 
 func ReverseArray(nums []int) {
-	// Movement → Condition → Operation → State → Result
-	// Movement: l → right, r → left
-	// Condition: l < r
-	// Operation: swap(nums[l], nums[r])
-	// State: update l++, r--
-	// Result: array reversed in place
 
 	l, r := 0, len(nums)-1
 	for l < r {

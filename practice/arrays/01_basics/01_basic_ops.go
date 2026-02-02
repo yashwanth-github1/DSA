@@ -15,11 +15,6 @@ func main() {
 	arr[1] = 25
 	fmt.Println("After Update index 1:", arr)
 
-	// 3. Linear Search
-	target := 40
-	index := linearSearch(arr, target)
-	fmt.Println("Index of", target, ":", index)
-
 	// 4. Insertion at index 2, value 15
 	arr = insertAt(arr, 2, 15)
 	fmt.Println("After Insertion at index 2:", arr)
@@ -31,9 +26,6 @@ func main() {
 	// 6. Traversal
 	fmt.Print("Traversal: ")
 	traverse(arr)
-
-	// 7. Find Max / Min
-	fmt.Println("\nMax:", findMax(arr), "Min:", findMin(arr))
 
 	// 8. Sum / Average
 	sum := findSum(arr)
@@ -47,24 +39,6 @@ func main() {
 	arrCopy := copyArray(arr)
 	fmt.Println("Copied Array:", arrCopy)
 
-	// 11. Left Rotate by 2
-	leftRotate(arr, 2)
-	fmt.Println("After Left Rotate by 2:", arr)
-
-	// 12. Count Frequency of 25
-	fmt.Println("Frequency of 25:", countFrequency(arr, 25))
-}
-
-// ---------------- Functions ----------------
-
-// Linear Search
-func linearSearch(arr []int, target int) int {
-	for i, val := range arr {
-		if val == target {
-			return i
-		}
-	}
-	return -1
 }
 
 // Insert at index
@@ -92,28 +66,6 @@ func traverse(arr []int) {
 	}
 }
 
-// Find Max
-func findMax(arr []int) int {
-	max := arr[0]
-	for _, val := range arr {
-		if val > max {
-			max = val
-		}
-	}
-	return max
-}
-
-// Find Min
-func findMin(arr []int) int {
-	min := arr[0]
-	for _, val := range arr {
-		if val < min {
-			min = val
-		}
-	}
-	return min
-}
-
 // Sum
 func findSum(arr []int) int {
 	sum := 0
@@ -138,33 +90,4 @@ func copyArray(arr []int) []int {
 	newArr := make([]int, len(arr))
 	copy(newArr, arr)
 	return newArr
-}
-
-// Left Rotate by d
-func leftRotate(arr []int, d int) {
-	n := len(arr)
-	d = d % n
-	reverseSlice(arr[:d])
-	reverseSlice(arr[d:])
-	reverseSlice(arr)
-}
-
-func reverseSlice(s []int) {
-	i, j := 0, len(s)-1
-	for i < j {
-		s[i], s[j] = s[j], s[i]
-		i++
-		j--
-	}
-}
-
-// Count Frequency
-func countFrequency(arr []int, target int) int {
-	count := 0
-	for _, val := range arr {
-		if val == target {
-			count++
-		}
-	}
-	return count
 }
