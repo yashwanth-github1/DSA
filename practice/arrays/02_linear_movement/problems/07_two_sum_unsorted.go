@@ -1,6 +1,6 @@
 package main
 
-// two sum unsorted
+// two sum unsorted(return indices)
 func twoSumUnsorted(nums []int, target int) []int { //[2]int
 	seen := make(map[int]int) // map[num] = index
 
@@ -13,6 +13,21 @@ func twoSumUnsorted(nums []int, target int) []int { //[2]int
 	}
 
 	return []int{} // if no pair found  //[2]int{-1, -1}
+}
+
+// two sum unsorted(return values)
+
+func twoSumUnsortedValues(nums []int, target int) []int {
+	seen := make(map[int]int) // value -> index (unchanged)
+
+	for _, num := range nums {
+		complement := target - num
+		if _, found := seen[complement]; found {
+			return []int{complement, num} // return VALUES instead of indices
+		}
+		seen[num] = 1 // value doesn't matter anymore
+	}
+	return []int{}
 }
 
 //Count Pairs With Given Sum which equals target
@@ -29,4 +44,18 @@ func countPairs(nums []int, target int) int {
 	}
 
 	return count
+}
+
+func twoSumUnsortedBool(a []int, target int) []int {
+	freq := make(map[int]bool)
+
+	for _, v := range a {
+		complement := target - v
+		if freq[complement] {
+			return []int{complement, v}
+		}
+		freq[v] = true
+	}
+
+	return nil
 }

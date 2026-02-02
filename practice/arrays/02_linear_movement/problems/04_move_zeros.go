@@ -3,19 +3,19 @@ package main
 //move zeros to end
 func moveZeroes(nums []int) {
 	n := len(nums)
-	lastNonZero := 0 // pointer to place next non-zero
+	lastNonZero := 0
 
 	// Move non-zero elements forward
-	for i := 0; i < n; i++ { // start movement from first element
-		if nums[i] != 0 { // check condition
-			nums[lastNonZero] = nums[i] // operation
-			lastNonZero++               // move pointer
+	for i := 0; i < n; i++ {
+		if nums[i] != 0 {
+			nums[lastNonZero] = nums[i]
+			lastNonZero++ // move pointer
 		}
 	}
 
 	// Fill remaining positions with zeros
 	for i := lastNonZero; i < n; i++ {
-		nums[i] = 0 // operation
+		nums[i] = 0
 	}
 }
 

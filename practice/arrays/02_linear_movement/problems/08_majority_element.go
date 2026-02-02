@@ -8,13 +8,11 @@ func majorityElementMap(nums []int) int {
 	n := len(nums)
 
 	for _, val := range nums {
-		// Movement → iterate over array
 		freq[val]++
-		// Operation → increment count
 		if freq[val] > n/2 {
 			// Condition → count exceeds n/2
 			return val
-			// Result → majority element found
+
 		}
 	}
 

@@ -3,53 +3,47 @@ package main
 import "sort"
 
 //Count Occurrences of All Elements (Frequency Map)
-func frequencyMap(nums []int) map[int]int {
+func frequencyMap(a []int) map[int]int {
 	freq := make(map[int]int)
-	for _, val := range nums { // traverse array
+	for _, val := range a { // traverse array
 		freq[val]++ // increment count in map
 	}
 	return freq
 }
 
 //Find Most Frequent Element
-func mostFrequent(nums []int) int {
+func mostfreqElement(a []int) (int, int) {
 	freq := make(map[int]int)
-	maxFreq := 0
-	mostFreq := nums[0]
-
-	for _, val := range nums {
-		freq[val]++
-		if freq[val] > maxFreq {
-			maxFreq = freq[val]
+	for _, v := range a {
+		freq[v]++
+	}
+	mostFreq := -1
+	element := -1
+	for num, val := range freq {
+		if val > mostFreq {
 			mostFreq = val
+			element = num
 		}
 	}
-	return mostFreq
+	return element, mostFreq
 }
 
 //Find Least Frequent Element
 
-func leastFrequent(nums []int) int {
-	freq := make(map[int]int) // Map to store counts
-
-	// Count frequency of each element
-	for _, val := range nums {
-		freq[val]++
+func leastfreqElement(a []int) (int, int) {
+	freq := make(map[int]int)
+	for _, v := range a {
+		freq[v]++
 	}
-
-	// Initialize with first element
-	leastFreq := nums[0]
-	minFreq := freq[leastFreq]
-
-	// Find element with smallest frequency
-	for key, count := range freq {
-		if count < minFreq { // If this element occurs less times
-			minFreq = count // Update min frequency
-			leastFreq = key // Update least frequent element
+	leastFreq := a[0] //leastFreq := math.MaxInt64
+	element := a[0]
+	for num, val := range freq {
+		if val < leastFreq {
+			leastFreq = val
+			element = num
 		}
 	}
-
-	return leastFreq
+	return element, leastFreq
 }
 
 //Sort Elements by Frequency

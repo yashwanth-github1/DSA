@@ -36,10 +36,12 @@ func main() {
 	fmt.Println("Frequency of elements:", frequencyMap(nums8))
 
 	nums11 := []int{1, 7, 3, 7, 7, 2}
-	fmt.Println("Most Frequent Element:", mostFrequent(nums11))
+	element, freq := mostfreqElement(nums11)
+	fmt.Println("Most Frequent Element:", element, "Frequency:", freq)
 
 	nums9 := []int{1, 7, 3, 7, 7, 2}
-	fmt.Println("Least Frequent Element:", leastFrequent(nums9))
+	element1, freq1 := leastfreqElement(nums9)
+	fmt.Println("Least Frequent Element:", element1, "Frequency:", freq1)
 
 	nums10 := []int{1, 7, 3, 7, 7, 2}
 	fmt.Println("Sorted by frequency:", sortByFrequency(nums10))
@@ -47,6 +49,10 @@ func main() {
 	nums12 := []int{0, 1, 0, 3, 12}
 	moveZeroes(nums12)
 	fmt.Println("Array after moving zeros:", nums12)
+
+	a := []int{1, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5}
+	duplicatescount, values := countDuplicatesInArray(a)
+	fmt.Println("duplicates count", duplicatescount, "and its values", values)
 
 	nums13 := []int{0, 1, 0, 3, 12}
 	moveZeroesToFront(nums13)
@@ -99,5 +105,20 @@ func main() {
 
 	nums23 := []int{3, 2, 3, 2, 2, 1, 1}
 	fmt.Println("Elements appearing > n/3 times:", majorityElementNBy3(nums23))
+
+	a1 := []int{1, 2, 3, 4, 5}
+	a2 := []int{1, 2, 3, 4, 5}
+
+	k := 2
+
+	rotateRight(a1, k)
+	fmt.Println("Right Rotate:", a1) // [4 5 1 2 3]
+
+	rotateLeft(a2, k)
+	fmt.Println("Left Rotate :", a2) // [3 4 5 1 2]
+
+	a3 := []int{1, 2, 2, 4, 5, 2, 2}
+	target7 := 1
+	fmt.Println(firstAndLastOccurunceinArray(a3, target7))
 
 }

@@ -1,11 +1,11 @@
 package main
 
 func linearSearch(nums []int, target int) int {
-	for i, val := range nums { // start movement i=0
-		if val == target { // condition
-			return i // operation
+	for i, val := range nums {
+		if val == target {
+			return i
 		}
-	} // end movement i=len(nums)
+	}
 	return -1
 }
 
@@ -23,11 +23,11 @@ func countOccurrences(nums []int, target int) int {
 // Return All Indices of Target
 func allIndices(nums []int, target int) []int {
 	var indices []int
-	for i, val := range nums { // start movement
-		if val == target { // condition
-			indices = append(indices, i) // operation
+	for i, val := range nums {
+		if val == target {
+			indices = append(indices, i)
 		}
-	} // end movement
+	}
 	return indices
 }
 
@@ -35,13 +35,13 @@ func allIndices(nums []int, target int) []int {
 
 func searchRange(nums []int, target int) []int {
 	first, last := -1, -1
-	for i, val := range nums { // start movement
-		if val == target { // condition
-			if first == -1 { // first occurrence
-				first = i // operation 1
+	for i, val := range nums {
+		if val == target {
+			if first == -1 {
+				first = i
 			}
-			last = i // operation 2
+			last = i
 		}
-	} // end movement
+	}
 	return []int{first, last}
 }
